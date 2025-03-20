@@ -20,6 +20,7 @@ function TaskCard() {
   return (
     <>
       <div>
+        <h1>Task</h1>
         {checkBoxes.map((checkBox) => (
           <CheckBox
             key={checkBox.id}
