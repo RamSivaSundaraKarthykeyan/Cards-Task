@@ -1,9 +1,9 @@
-function CheckBox({ id, removeCheckBox }) {
+function CheckBox({ id, removeCheckBox, text }) {
   return (
     <div>
       <label>
         <input type="checkbox" />
-        Check Box {id}
+        {text || `Check Box ${id}`}
         <button onClick={removeCheckBox}>-</button>
       </label>
     </div>
