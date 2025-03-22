@@ -1,12 +1,11 @@
-function CheckBox({ id, removeCheckBox, text }) {
+function CheckBox({ id }) {
   return (
-    <div>
+    <>
       <label>
         <input type="checkbox" />
-        {text || `Check Box ${id}`}
-        <button onClick={removeCheckBox}>-</button>
+        {id}. Check Box
       </label>
-    </div>
+    </>
   );
 }
 
