@@ -10,11 +10,20 @@ function TaskCard() {
     setCheckBoxes([...checkBoxes, { id: newId }]);
   };
 
+  const deleteCheckBox = (id) => {
+    const updatedCheckBox = checkBoxes.filter((cb) => cb.id !== id);
+    setCheckBoxes(updatedCheckBox);
+  };
+
   return (
     <>
       <h1>Task</h1>
       {checkBoxes.map((cb) => (
-        <CheckBox id={cb.id} key={cb.id} />
+        <CheckBox
+          id={cb.id}
+          key={cb.id}
+          removeCheckBox={() => deleteCheckBox(cb.id)}
+        />
       ))}
       <button onClick={addCheckBox}>+</button>
     </>
