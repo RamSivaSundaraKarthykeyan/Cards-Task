@@ -1,3 +1,5 @@
+import "../CSS/checkBox.css";
+
 function CheckBox({ id, removeCheckBox }) {
   return (
     <>
@@ -5,7 +7,7 @@ function CheckBox({ id, removeCheckBox }) {
         <div>
           <input type="checkbox" />
           {id}.
-          <input type="text" />
+          <input type="text" className="textField" />
           <button onClick={removeCheckBox}>-</button>
         </div>
       </label>

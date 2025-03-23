@@ -1,5 +1,4 @@
-import { useState } from "react";
-import "./App.css";
+import "./CSS/App.css";
 import TaskCard from "./components/TaskCard";
 
 function App() {
