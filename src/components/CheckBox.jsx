@@ -2,9 +2,12 @@ function CheckBox({ id, removeCheckBox }) {
   return (
     <>
       <label>
-        <input type="checkbox" />
-        {id}. Check Box
-        <button onClick={removeCheckBox}>-</button>
+        <div>
+          <input type="checkbox" />
+          {id}.
+          <input type="text" />
+          <button onClick={removeCheckBox}>-</button>
+        </div>
       </label>
     </>
   );
