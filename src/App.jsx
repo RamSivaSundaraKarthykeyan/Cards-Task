@@ -1,10 +1,10 @@
 import "./CSS/App.css";
-import TaskCard from "./components/TaskCard";
+import Deck from "./components/Deck.jsx";
 
 function App() {
   return (
     <>
-      <TaskCard />
+      <Deck />
     </>
   );
 }
