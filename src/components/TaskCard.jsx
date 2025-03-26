@@ -35,14 +35,17 @@ function TaskCard({ id }) {
   return (
     <div className="task-card">
       <h1>{id}.Task</h1>
-      {checkBoxes.map((cb) => (
-        <CheckBox
-          id={cb.id}
-          key={cb.id}
-          removeCheckBox={() => deleteCheckBox(cb.id)}
-          updatedText={(value) => updatedText(cb.id, value)}
-        />
-      ))}
+      <div className="checkbox-container">
+        {checkBoxes.map((cb) => (
+          <CheckBox
+            id={cb.id}
+            key={cb.id}
+            removeCheckBox={() => deleteCheckBox(cb.id)}
+            updatedText={(value) => updatedText(cb.id, value)}
+          />
+        ))}
+      </div>
+
       <button onClick={addCheckBox}>'+'</button>
     </div>
   );

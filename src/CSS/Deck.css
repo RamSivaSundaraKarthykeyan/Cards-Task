@@ -1,0 +1,18 @@
+.task-card-add-button{
+    padding: 16px;
+    width: 310px;
+    height: 410px;
+    margin: 8px;
+    overflow-y: auto;
+}
+
+.deck {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    /* Spacing between cards */
+    justify-content: center;
+    /* Center-align cards */
+    align-items: flex-start;
+    /* Align at the top */
+}

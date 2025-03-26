@@ -4,9 +4,9 @@
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 16px;
-    width: 200px;
+    width: 280px;
     /* Fixed width for consistent size */
-    height: 300px;
+    height: 380px;
     /* Fixed height for consistent layout */
     text-align: center;
     font-family: Arial, sans-serif;
@@ -26,4 +26,55 @@
     font-size: 18px;
     color: #333;
     margin: 0 0 8px;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    /* Vertical alignment */
+    gap: 10px;
+    /* Spacing between checkboxes */
+    align-items: flex-start;
+    /* Align checkboxes to the left */
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #d63b3b;
+    /* Checkbox custom color */
+    cursor: pointer;
+}
+
+.checkbox-container label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Space between checkbox and label */
+    font-size: 14px;
+}
+
+
+.task-card::-webkit-scrollbar {
+    width: 8px;
+    /* Width of the scrollbar */
+}
+
+.task-card::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff6f61, #d63b3b);
+    /* Gradient color for the scrollbar thumb */
+    border-radius: 4px;
+    /* Rounded edges */
+}
+
+.task-card::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #d63b3b, #ff6f61);
+    /* Change color on hover */
+}
+
+.task-card::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Light background for the scrollbar track */
+    border-radius: 4px;
+    /* Rounded edges */
 }

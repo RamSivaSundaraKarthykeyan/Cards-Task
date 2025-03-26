@@ -18,7 +18,9 @@ function Deck() {
       style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}
       className="deck"
     >
-      <button onClick={addTaskCard}>+</button>
+      <button className="task-card-add-button" onClick={addTaskCard}>
+        +
+      </button>
       {taskCards.map((tc) => (
         <TaskCard id={tc.id} key={tc.id} />
       ))}
