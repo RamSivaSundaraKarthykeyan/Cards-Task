@@ -4,10 +4,17 @@
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 16px;
-    max-width: 200px;
+    width: 200px;
+    /* Fixed width for consistent size */
+    height: 300px;
+    /* Fixed height for consistent layout */
     text-align: center;
     font-family: Arial, sans-serif;
+    margin: 8px;
+    /* Spacing between cards */
     transition: transform 0.2s ease-in-out;
+    overflow-y: auto;
+    /* Add scroll if content exceeds height */
 }
 
 .task-card:hover {
