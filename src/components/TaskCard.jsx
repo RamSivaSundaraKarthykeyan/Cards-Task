@@ -5,6 +5,7 @@ import "../CSS/TaskCard.css";
 function TaskCard({ id, removeTask }) {
   const [checkBoxes, setCheckBoxes] = useState([]);
   const [text, setText] = useState([""]); // the text state is an array that holds the text each checkBox
+  const [headerText, setHeaderText] = useState("");
 
   const addCheckBox = () => {
     const newId =
@@ -34,8 +35,19 @@ function TaskCard({ id, removeTask }) {
 
   return (
     <div className="task-card">
-      <h1>{id}.Task</h1>
-      <button onClick={removeTask}>-</button>
+      <label>
+        <input
+          type="text"
+          placeholder="Task Card Name"
+          value={headerText}
+          onChange={(e) => setHeaderText(e.target.value)}
+          className="card-title"
+        />
+        <button className="remove-button" onClick={removeTask}>
+          -
+        </button>
+      </label>
+
       <div className="checkbox-container">
         {checkBoxes.map((cb) => (
           <CheckBox

@@ -1,20 +1,21 @@
 .task-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+    position: relative;
     width: 280px;
-    /* Fixed width for consistent size */
     height: 380px;
-    /* Fixed height for consistent layout */
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 8px;
-    /* Spacing between cards */
-    transition: transform 0.2s ease-in-out;
+    justify-content: space-between;
+    background: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
     overflow-y: auto;
-    /* Add scroll if content exceeds height */
+    /* Enable vertical scrolling */
+    overflow-x: hidden;
+    /* Hide horizontal scrolling */
 }
 
 .task-card:hover {
@@ -31,11 +32,10 @@
 .checkbox-container {
     display: flex;
     flex-direction: column;
-    /* Vertical alignment */
-    gap: 10px;
-    /* Spacing between checkboxes */
     align-items: flex-start;
-    /* Align checkboxes to the left */
+    gap: 10px;
+    padding: 16px 8px;
+    
 }
 
 .checkbox-container input[type="checkbox"] {
@@ -77,4 +77,38 @@
     /* Light background for the scrollbar track */
     border-radius: 4px;
     /* Rounded edges */
+}
+
+
+.card-title{
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    width: auto;
+    border: none;
+    background-color: transparent;
+    color:#333;
+    margin-bottom: 25px;
+}
+
+
+.remove-button{
+    position: absolute;
+    /* Fix it to the top-left corner */
+    top: 16px;
+    right: 16px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius:5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

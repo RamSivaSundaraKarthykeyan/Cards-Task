@@ -6,7 +6,6 @@ function CheckBox({ id, removeCheckBox, updatedText }) {
       <label>
         <div>
           <input type="checkbox" />
-          {id}.
           <input
             type="text"
             className="textField"
