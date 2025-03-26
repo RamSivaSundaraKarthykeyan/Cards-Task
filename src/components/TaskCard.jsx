@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CheckBox from "./CheckBox.jsx";
 
-function TaskCard() {
+function TaskCard({ id }) {
   const [checkBoxes, setCheckBoxes] = useState([]);
   const [text, setText] = useState([""]); // the text state is an array that holds the text each checkBox
 
@@ -33,7 +33,7 @@ function TaskCard() {
 
   return (
     <>
-      <h1>Task</h1>
+      <h1>{id}.Task</h1>
       {checkBoxes.map((cb) => (
         <CheckBox
           id={cb.id}
@@ -42,7 +42,7 @@ function TaskCard() {
           updatedText={(value) => updatedText(cb.id, value)}
         />
       ))}
-      <button onClick={addCheckBox}>+</button>
+      <button onClick={addCheckBox}>'+'</button>
     </>
   );
 }
