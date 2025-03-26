@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CheckBox from "./CheckBox.jsx";
+import "../CSS/TaskCard.css";
 
 function TaskCard({ id }) {
   const [checkBoxes, setCheckBoxes] = useState([]);
@@ -32,7 +33,7 @@ function TaskCard({ id }) {
   };
 
   return (
-    <>
+    <div className="task-card">
       <h1>{id}.Task</h1>
       {checkBoxes.map((cb) => (
         <CheckBox
@@ -43,7 +44,7 @@ function TaskCard({ id }) {
         />
       ))}
       <button onClick={addCheckBox}>'+'</button>
-    </>
+    </div>
   );
 }
 

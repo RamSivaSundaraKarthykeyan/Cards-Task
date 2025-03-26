@@ -1,0 +1,22 @@
+.task-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    max-width: 200px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    transition: transform 0.2s ease-in-out;
+}
+
+.task-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.task-card h1 {
+    font-size: 18px;
+    color: #333;
+    margin: 0 0 8px;
+}

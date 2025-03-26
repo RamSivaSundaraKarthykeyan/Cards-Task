@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TaskCard from "./TaskCard.jsx";
+import "../CSS/Deck.css";
 
 function Deck() {
   const [taskCards, setTaskCard] = useState([]);
@@ -13,7 +14,10 @@ function Deck() {
   console.log(taskCards);
 
   return (
-    <div>
+    <div
+      style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}
+      className="deck"
+    >
       <button onClick={addTaskCard}>+</button>
       {taskCards.map((tc) => (
         <TaskCard id={tc.id} key={tc.id} />
