@@ -2,7 +2,7 @@ import { useState } from "react";
 import CheckBox from "./CheckBox.jsx";
 import "../CSS/TaskCard.css";
 
-function TaskCard({ id }) {
+function TaskCard({ id, removeTask }) {
   const [checkBoxes, setCheckBoxes] = useState([]);
   const [text, setText] = useState([""]); // the text state is an array that holds the text each checkBox
 
@@ -35,6 +35,7 @@ function TaskCard({ id }) {
   return (
     <div className="task-card">
       <h1>{id}.Task</h1>
+      <button onClick={removeTask}>-</button>
       <div className="checkbox-container">
         {checkBoxes.map((cb) => (
           <CheckBox

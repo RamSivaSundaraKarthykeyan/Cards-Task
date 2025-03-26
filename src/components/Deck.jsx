@@ -11,7 +11,10 @@ function Deck() {
     setTaskCard([...taskCards, { id: newId }]);
   };
 
-  console.log(taskCards);
+  const deleteTask = (id) => {
+    const updatedTaskCard = taskCards.filter((tc) => tc.id !== id);
+    setTaskCard(updatedTaskCard);
+  };
 
   return (
     <div
@@ -22,7 +25,7 @@ function Deck() {
         +
       </button>
       {taskCards.map((tc) => (
-        <TaskCard id={tc.id} key={tc.id} />
+        <TaskCard id={tc.id} key={tc.id} removeTask={() => deleteTask(tc.id)} />
       ))}
     </div>
   );
