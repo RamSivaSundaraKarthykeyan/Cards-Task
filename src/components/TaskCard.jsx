@@ -42,6 +42,7 @@ function TaskCard({ id, removeTask }) {
           value={headerText}
           onChange={(e) => setHeaderText(e.target.value)}
           className="card-title"
+          style={{ borderBottom: "2px solid #rgb(0, 0, 0)" }}
         />
         <button className="remove-button" onClick={removeTask}>
           -
@@ -59,7 +60,9 @@ function TaskCard({ id, removeTask }) {
         ))}
       </div>
 
-      <button onClick={addCheckBox}>'+'</button>
+      <button className="add-check-box-button" onClick={addCheckBox}>
+        +
+      </button>
     </div>
   );
 }

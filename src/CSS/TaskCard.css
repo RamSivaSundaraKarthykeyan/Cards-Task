@@ -1,6 +1,6 @@
 .task-card {
     position: relative;
-    width: 280px;
+    width: 320px;
     height: 380px;
     justify-content: space-between;
     background: #f9f9f9;
@@ -8,25 +8,39 @@
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    overflow-y: auto;
-    /* Enable vertical scrolling */
+    box-sizing: border-box;
+    overflow-y: hidden;
+    /* Initially hides the scrollbar */
     overflow-x: hidden;
-    /* Hide horizontal scrolling */
+    transition: overflow 0.2s ease;
+    /* Smooth transition for hover effect */
 }
 
 .task-card:hover {
+    overflow-y: auto;
+    /* Shows the scrollbar on hover */
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.task-card h1 {
-    font-size: 18px;
+.card-title {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    width: auto;
+    border: none;
+    background-color: transparent;
     color: #333;
-    margin: 0 0 8px;
+    margin-bottom: 25px;
 }
 
 .checkbox-container {
@@ -35,14 +49,14 @@
     align-items: flex-start;
     gap: 10px;
     padding: 16px 8px;
-    
+    margin-top: 60px;
+    /* Added margin to prevent overlap */
 }
 
 .checkbox-container input[type="checkbox"] {
     width: 16px;
     height: 16px;
     accent-color: #d63b3b;
-    /* Checkbox custom color */
     cursor: pointer;
 }
 
@@ -50,10 +64,34 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    /* Space between checkbox and label */
     font-size: 14px;
 }
 
+.remove-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.add-check-box-button {
+    margin-top: 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
 .task-card::-webkit-scrollbar {
     width: 8px;
@@ -77,38 +115,4 @@
     /* Light background for the scrollbar track */
     border-radius: 4px;
     /* Rounded edges */
-}
-
-
-.card-title{
-    position: absolute;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    border-radius: 8px;
-    text-align: center;
-    width: auto;
-    border: none;
-    background-color: transparent;
-    color:#333;
-    margin-bottom: 25px;
-}
-
-
-.remove-button{
-    position: absolute;
-    /* Fix it to the top-left corner */
-    top: 16px;
-    right: 16px;
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius:5px;
-    padding: 8px 12px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
