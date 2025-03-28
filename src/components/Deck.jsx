@@ -1,20 +1,32 @@
-import { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import TaskCard from "./TaskCard.jsx";
 import "../CSS/Deck.css";
 
 function Deck() {
   const [taskCards, setTaskCard] = useState([]);
+  const inputRef = useRef({});
 
   const addTaskCard = () => {
     const newId =
       taskCards.length === 0 ? 1 : taskCards[taskCards.length - 1].id + 1;
-    setTaskCard([...taskCards, { id: newId }]);
+    setTaskCard((prev) => [...prev, { id: newId }]);
+
+    inputRef.current[newId] = React.createRef();
   };
 
   const deleteTask = (id) => {
     const updatedTaskCard = taskCards.filter((tc) => tc.id !== id);
     setTaskCard(updatedTaskCard);
+
+    delete inputRef.current[id];
   };
+
+  useEffect(() => {
+    if (taskCards.length > 0) {
+      const lastTaskCard = taskCards[taskCards.length - 1];
+      inputRef.current[lastTaskCard.id]?.current?.focus();
+    }
+  }, [taskCards]);
 
   return (
     <div
@@ -25,7 +37,12 @@ function Deck() {
         +
       </button>
       {taskCards.map((tc) => (
-        <TaskCard id={tc.id} key={tc.id} removeTask={() => deleteTask(tc.id)} />
+        <TaskCard
+          id={tc.id}
+          key={tc.id}
+          removeTask={() => deleteTask(tc.id)}
+          inputRef={inputRef.current[tc.id]}
+        />
       ))}
     </div>
   );

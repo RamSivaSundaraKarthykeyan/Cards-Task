@@ -1,8 +1,6 @@
-.task-card-add-button{
+.task-card-add-button {
     width: 280px;
-    /* Match task card width */
     height: 380px;
-    /* Match task card height */
     margin: 8px;
     display: flex;
     justify-content: center;
@@ -12,7 +10,8 @@
     background: #333;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-        
+    box-sizing: border-box;
+    /* Ensures uniform size */
 }
 
 .task-card-add-button:hover {
@@ -24,9 +23,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    /* Spacing between cards */
     justify-content: center;
-    /* Center-align cards */
     align-items: flex-start;
-    /* Align at the top */
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import CheckBox from "./CheckBox.jsx";
 import "../CSS/TaskCard.css";
 
-function TaskCard({ id, removeTask }) {
+function TaskCard({ id, removeTask, inputRef }) {
   const [checkBoxes, setCheckBoxes] = useState([]);
   const [text, setText] = useState([""]); // the text state is an array that holds the text each checkBox
   const [headerText, setHeaderText] = useState("");
@@ -43,6 +43,7 @@ function TaskCard({ id, removeTask }) {
           onChange={(e) => setHeaderText(e.target.value)}
           className="card-title"
           style={{ borderBottom: "2px solid #rgb(0, 0, 0)" }}
+          ref={inputRef}
         />
         <button className="remove-button" onClick={removeTask}>
           -
