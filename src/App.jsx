@@ -5,6 +5,7 @@ function App() {
   return (
     <>
       <Deck />
+      <h1>Hello</h1>
     </>
   );
 }
