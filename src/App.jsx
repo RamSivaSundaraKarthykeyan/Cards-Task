@@ -6,6 +6,7 @@ function App() {
     <>
       <Deck />
       <h1>Hello</h1>
+      <h2>Vanakam</h2>
     </>
   );
 }
