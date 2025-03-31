@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CheckBox from "./CheckBox.jsx";
 import "../CSS/TaskCard.css";
 
@@ -14,6 +14,8 @@ function TaskCard({ id, removeTask, inputRef }) {
       checkBoxes.length === 0 ? 1 : checkBoxes[checkBoxes.length - 1].id + 1;
     setCheckBoxes([...checkBoxes, { id: newId }]);
     setText([...text, ""]); // the spread operator ... copies the current "text" array and appends a new empty string""
+
+    checkBoxRefs.current[newId] = React.createRef();
   };
 
   const deleteCheckBox = (id) => {
@@ -25,6 +27,8 @@ function TaskCard({ id, removeTask, inputRef }) {
     // "_" represents the current element of the array during iteration, "index" it is the index of the element in the array
     const updatedText = text.filter((_, index) => index !== id - 1);
     setText(updatedText);
+
+    delete checkBoxRefs.current[id];
   };
 
   const updatedText = (id, value) => {
@@ -34,6 +38,13 @@ function TaskCard({ id, removeTask, inputRef }) {
       return updated;
     });
   };
+
+  useEffect(() => {
+    if (checkBoxes.length > 0) {
+      const lastCheckBox = checkBoxes[checkBoxes.length - 1];
+      checkBoxRefs.current[lastCheckBox.id]?.current?.focus();
+    }
+  }, [checkBoxes]);
 
   return (
     <div className="task-card">
@@ -59,6 +70,7 @@ function TaskCard({ id, removeTask, inputRef }) {
             key={cb.id}
             removeCheckBox={() => deleteCheckBox(cb.id)}
             updatedText={(value) => updatedText(cb.id, value)}
+            inputRef={checkBoxRefs.current[cb.id]}
           />
         ))}
       </div>

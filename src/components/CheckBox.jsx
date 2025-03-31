@@ -1,6 +1,6 @@
 import "../CSS/checkBox.css";
 
-function CheckBox({ id, removeCheckBox, updatedText }) {
+function CheckBox({ id, removeCheckBox, updatedText, inputRef }) {
   return (
     <>
       <label>
@@ -10,6 +10,7 @@ function CheckBox({ id, removeCheckBox, updatedText }) {
             type="text"
             className="textField"
             onChange={(e) => updatedText(e.target.value)}
+            ref={inputRef}
           />
           <button onClick={removeCheckBox}>-</button>
         </div>
