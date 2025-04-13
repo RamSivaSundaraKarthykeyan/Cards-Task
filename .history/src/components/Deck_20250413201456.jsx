@@ -16,6 +16,13 @@ function Deck() {
     inputRef.current[newId] = React.createRef();
   };
 
+  const deleteTask = (id) => {
+    const updatedTaskCard = taskCards.filter((tc) => tc.id !== id);
+    removeTaskCard(updatedTaskCard);
+
+    delete inputRef.current[id];
+  };
+
   const handlePickRandomTaskCard = () => {
     const randomTaskCard = pickRandomTaskCard();
     if (randomTaskCard) {

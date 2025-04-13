@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import TaskCard from "./TaskCard.jsx";
 import { useTaskCardContext } from "../context/TaskCardContext.jsx";
 import "../CSS/Deck.css";
@@ -14,6 +14,13 @@ function Deck() {
       taskCards.length === 0 ? 1 : taskCards[taskCards.length - 1].id + 1;
     addTaskCard({ id: newId });
     inputRef.current[newId] = React.createRef();
+  };
+
+  const deleteTask = (id) => {
+    const updatedTaskCard = taskCards.filter((tc) => tc.id !== id);
+    removeTaskCard(updatedTaskCard);
+
+    delete inputRef.current[id];
   };
 
   const handlePickRandomTaskCard = () => {
@@ -45,7 +52,7 @@ function Deck() {
         <TaskCard
           id={tc.id}
           key={tc.id}
-          removeTask={() => removeTaskCard(tc.id)}
+          removeTask={() => deleteTask(tc.id)}
           inputRef={inputRef.current[tc.id]}
         />
       ))}

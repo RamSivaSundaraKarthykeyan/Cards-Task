@@ -16,11 +16,11 @@ export function TaskCardProvider({ children }) {
   };
 
   return (
-    <TaskCardContext.Provider
+    <TaskCarfContext.Provider
       value={{ taskCards, addTaskCard, removeTaskCard, pickRandomTaskCard }}
     >
       {children}
-    </TaskCardContext.Provider>
+    </TaskCarfContext.Provider>
   );
 }
 
