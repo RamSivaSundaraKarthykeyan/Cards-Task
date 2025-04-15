@@ -67,7 +67,7 @@ function TaskCard({ id, removeTask, inputRef, isSelected }) {
         <div className="completed-screen">
           <h3>Task Completed!</h3>
           <p>{headerText ? headerText : "No Title"}</p>
-          <button onClick={removeTask}>Remove Task</button>
+          <button onclick={removeTask}>Remove Task</button>
         </div>
       </div>
     );

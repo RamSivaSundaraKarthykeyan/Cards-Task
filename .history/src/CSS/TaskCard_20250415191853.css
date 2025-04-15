@@ -120,7 +120,6 @@
 .task-card.completed {
     border: 2px solid green;
     background-color: #7ed67e;
-    color: #d63b3b;
 }
 
 .task-card.selected {
