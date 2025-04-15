@@ -34,25 +34,12 @@ function TaskCard({ id, removeTask, inputRef, isSelected }) {
   };
 
   const updatedText = (cbId, value) => {
-    const index = checkBoxes.findIndex((cb) => cb.id === cbId);
     setText((prevText) => {
-      const newText = [...prevText];
-      newText[index] = value;
-      return newText;
+      const updated = [...prevText];
+      updated[cbId - 1] = value;
+      return updated;
     });
   };
-
-  const handleToggleCheckBox = (cbId) => {
-    const index = checkBoxes.findIndex((cb) => cb.id === cbId);
-    setCheckBoxStatus((prevStatus) => {
-      const newStatus = [...prevStatus];
-      newStatus[index] = !newStatus[index];
-      return newStatus;
-    });
-  };
-
-  const isCompleted =
-    checkBoxes.length > 0 && checkBoxStatus.every((status) => status);
 
   useEffect(() => {
     if (checkBoxes.length > 0) {
@@ -60,18 +47,6 @@ function TaskCard({ id, removeTask, inputRef, isSelected }) {
       checkBoxRefs.current[lastCheckBox.id]?.current?.focus();
     }
   }, [checkBoxes]);
-
-  if (isCompleted) {
-    return (
-      <div className={`task-card completed ${isSelected ? "selected" : ""}`}>
-        <div className="completed-screen">
-          <h3>Task Completed!</h3>
-          <p>{headerText ? headerText : "No Title"}</p>
-          <button onclick={removeTask}>Remove Task</button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div
@@ -94,15 +69,13 @@ function TaskCard({ id, removeTask, inputRef, isSelected }) {
       </label>
 
       <div className="checkbox-container">
-        {checkBoxes.map((cb, index) => (
+        {checkBoxes.map((cb) => (
           <CheckBox
             id={cb.id}
             key={cb.id}
             removeCheckBox={() => deleteCheckBox(cb.id)}
             updatedText={(value) => updatedText(cb.id, value)}
             inputRef={checkBoxRefs.current[cb.id]}
-            checked={checkBoxStatus[index] || false}
-            onToggle={() => handleToggleCheckBox(cb.id)}
           />
         ))}
       </div>

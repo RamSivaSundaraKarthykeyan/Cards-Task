@@ -1,4 +1,3 @@
-import React from "react";
 import "../CSS/checkBox.css";
 
 function CheckBox({ id, removeCheckBox, updatedText, inputRef }) {
