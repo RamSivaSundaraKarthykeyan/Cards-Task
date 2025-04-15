@@ -116,17 +116,3 @@
     border-radius: 4px;
     /* Rounded edges */
 }
-
-.task-card.completed {
-    border: 2px solid green;
-    background-color: #e0ffe0;
-}
-
-.task-card.selected {
-    /* Style for a selected task card */
-    border-color: red;
-}
-
-.completed-screen {
-    text-align: center;
-}
