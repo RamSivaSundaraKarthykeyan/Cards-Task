@@ -11,14 +11,21 @@ function App() {
       <div className="app-container"></div>
       <div className="sidebar">
         <Timer />
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "100%",
+            overflow: "hidden",
+          }}
+        >
+          <StickyNotes />
+        </div>
       </div>
       <div className="main-content">
         <TaskCardProvider>
           <Deck />
         </TaskCardProvider>
-      </div>
-      <div className="sticky-note">
-        <StickyNotes />
       </div>
     </>
   );

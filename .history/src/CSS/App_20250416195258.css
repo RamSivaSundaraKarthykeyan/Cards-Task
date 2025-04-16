@@ -60,7 +60,6 @@
 }
 
 .sticky-note {
-  margin-top: 50px;
   position: relative;
   /* Stays where you place it via top/left */
   width: 100%;
@@ -73,7 +72,6 @@
   cursor: move;
   user-select: none;
   border-radius: 10px;
-  overflow: "hidden",
 }
 
 .sticky-note textarea {

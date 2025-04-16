@@ -11,14 +11,14 @@ function App() {
       <div className="app-container"></div>
       <div className="sidebar">
         <Timer />
+        <div className="sticky-note">
+          <StickyNotes />
+        </div>
       </div>
       <div className="main-content">
         <TaskCardProvider>
           <Deck />
         </TaskCardProvider>
-      </div>
-      <div className="sticky-note">
-        <StickyNotes />
       </div>
     </>
   );

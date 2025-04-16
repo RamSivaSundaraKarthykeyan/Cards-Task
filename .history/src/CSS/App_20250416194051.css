@@ -60,20 +60,17 @@
 }
 
 .sticky-note {
-  margin-top: 50px;
-  position: relative;
+  position: absolute;
   /* Stays where you place it via top/left */
-  width: 100%;
+  width: 200px;
   /* Or any narrower size */
   min-height: 150px;
-  background: #292929;
+  background: #575757;
   /* The note’s color */
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: move;
   user-select: none;
-  border-radius: 10px;
-  overflow: "hidden",
 }
 
 .sticky-note textarea {

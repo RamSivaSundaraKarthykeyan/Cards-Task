@@ -71,8 +71,6 @@ function StickyNotes() {
           height: "100vh",
           border: "none",
           background: "#202020",
-          borderRadius: "10px",
-          overflow: "hidden",
         }}
       >
         {notes.map((note) => (
