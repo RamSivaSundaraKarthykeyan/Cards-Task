@@ -61,7 +61,7 @@ function Timer() {
       <h2 style={{ marginTop: "20px" }}>{time} sec</h2>
       {/* Audio element plays sound when time is up. Ensure sound.mp3 is available in your public folder or change the src to a valid URL */}
       <audio ref={audioRef}>
-        <source src="/alarm.mp3" type="audio/mpeg" />
+        <source src="public/alarm.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
     </div>
