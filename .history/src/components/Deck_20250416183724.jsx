@@ -45,7 +45,6 @@ function Deck() {
       className="deck"
     >
       <Timer />
-      <StickyNotes />
       <button onClick={handlePickRandomTaskCard}> Pick a Random Task </button>
       <button className="task-card-add-button" onClick={handleAddTaskCard}>
         +
