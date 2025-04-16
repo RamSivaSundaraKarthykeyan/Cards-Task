@@ -20,7 +20,7 @@ function StickyNotes() {
     if (note) {
       setDraggingId(id);
       setOffset({
-        x: e.clientX - note.x,
+        x: e.clinetX - note.x,
         y: e.clientY - note.y,
       });
     }
@@ -59,56 +59,4 @@ function StickyNotes() {
       prevNotes.map((note) => (note.id === id ? { ...note, content } : note))
     );
   };
-
-  return (
-    <div>
-      <button onClick={addNote} style={{ marginBottom: "20px" }}>
-        Add Sticky Note
-      </button>
-      <div
-        style={{
-          position: "relative",
-          height: "100vh",
-          border: "1px solid #ddd",
-          background: "#f7f7f7",
-        }}
-      >
-        {notes.map((note) => (
-          <div
-            key={note.id}
-            onMouseDown={(e) => handleMouseDown(e, note.id)}
-            style={{
-              position: "absolute",
-              top: note.y,
-              left: note.x,
-              width: "200px",
-              minHeight: "150px",
-              background: "yellow",
-              padding: "10px",
-              cursor: "move",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-              userSelect: "none",
-            }}
-          >
-            <textarea
-              value={note.content}
-              onChange={(e) => updateContent(note.id, e.target.value)}
-              placeholder="Enter your note"
-              style={{
-                width: "100%",
-                height: "100%",
-                background: "transparent",
-                border: "none",
-                resize: "none",
-                outline: "none",
-                color: "black",
-              }}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
 }
-
-export default StickyNotes;

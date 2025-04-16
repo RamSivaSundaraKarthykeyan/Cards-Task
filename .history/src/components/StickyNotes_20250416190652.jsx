@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 function StickyNotes() {
   const [notes, setNotes] = useState([]);
   const [draggingId, setDraggingId] = useState(null);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const offsetRef = useRef({ x: 0, y: 0 });
 
   const addNote = () => {
     const newNote = {
       id: Date.now(),
       content: "",
-      x: 50,
-      y: 50,
+      x: 200,
+      y: 200,
     };
     setNotes([...notes, newNote]);
   };
@@ -19,16 +19,19 @@ function StickyNotes() {
     const note = notes.find((n) => n.id === id);
     if (note) {
       setDraggingId(id);
-      setOffset({
-        x: e.clientX - note.x,
+      offsetRef.current = {
+        x: e.clinetX - note.x,
         y: e.clientY - note.y,
-      });
+      };
     }
   };
 
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (draggingId !== null) {
+        const newX = e.clientX - offset.x;
+        const newY = e.clientY - offset.y;
+        console.log("New X:", newX, " New Y:", newY);
         setNotes((prevNotes) =>
           prevNotes.map((note) =>
             note.id === draggingId
@@ -61,16 +64,19 @@ function StickyNotes() {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center", padding: "10px" }}>
       <button onClick={addNote} style={{ marginBottom: "20px" }}>
         Add Sticky Note
       </button>
       <div
         style={{
           position: "relative",
+          width: "100vw",
           height: "100vh",
-          border: "1px solid #ddd",
-          background: "#f7f7f7",
+          backgroundColor: "#202020",
+          margin: 0,
+          padding: 0,
+          overflow: "hidden",
         }}
       >
         {notes.map((note) => (
@@ -84,9 +90,9 @@ function StickyNotes() {
               width: "200px",
               minHeight: "150px",
               background: "yellow",
-              padding: "10px",
-              cursor: "move",
               boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+              cursor: "move",
+              padding: "10px",
               userSelect: "none",
             }}
           >

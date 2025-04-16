@@ -9,8 +9,8 @@ function StickyNotes() {
     const newNote = {
       id: Date.now(),
       content: "",
-      x: 50,
-      y: 50,
+      x: 200,
+      y: 200,
     };
     setNotes([...notes, newNote]);
   };
@@ -20,7 +20,7 @@ function StickyNotes() {
     if (note) {
       setDraggingId(id);
       setOffset({
-        x: e.clientX - note.x,
+        x: e.clinetX - note.x,
         y: e.clientY - note.y,
       });
     }
@@ -61,16 +61,19 @@ function StickyNotes() {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center", padding: "10px" }}>
       <button onClick={addNote} style={{ marginBottom: "20px" }}>
         Add Sticky Note
       </button>
       <div
         style={{
           position: "relative",
+          width: "100vw",
           height: "100vh",
-          border: "1px solid #ddd",
-          background: "#f7f7f7",
+          backgroundColor: "#202020",
+          margin: 0,
+          padding: 0,
+          overflow: "hidden",
         }}
       >
         {notes.map((note) => (

@@ -9,8 +9,8 @@ function StickyNotes() {
     const newNote = {
       id: Date.now(),
       content: "",
-      x: 50,
-      y: 50,
+      x: 200,
+      y: 200,
     };
     setNotes([...notes, newNote]);
   };
@@ -20,7 +20,7 @@ function StickyNotes() {
     if (note) {
       setDraggingId(id);
       setOffset({
-        x: e.clientX - note.x,
+        x: e.clinetX - note.x,
         y: e.clientY - note.y,
       });
     }
