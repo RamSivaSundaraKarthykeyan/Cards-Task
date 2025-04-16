@@ -11,10 +11,11 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     box-sizing: border-box;
+    /* Ensures uniform size */
 }
 
 .task-card-add-button:hover {
-    transform: perspective(600px) rotateX(2deg);
+    transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 

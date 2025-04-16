@@ -12,17 +12,61 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     box-sizing: border-box;
-    overflow-y: hidden;
+    overflow: hidden;
     /* Initially hides the scrollbar */
-    overflow-x: hidden;
+    overflow: visible;
     transition: overflow 0.2s ease;
     /* Smooth transition for hover effect */
 }
 
 .task-card:hover {
-    overflow-y: auto;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transform: perspective(600px) rotateX(2deg);
+    opacity: 1;
+        transform: perspective(600px) rotateX(2deg);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.task-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* Creates a triangle by setting only one side’s border-color */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 60px 60px 0 0;
+    /* Adjust for bigger/smaller fold */
+    border-color: #d63b3b transparent transparent transparent;
+    /* #d63b3b is your red color; tweak to your preference */
+    z-index: 2;
+    /* Ensure the fold is on top of the card background */
+    border-width: 50px 50px 0 0;
+}
+
+.task-card::after {
+    content: "–";
+    /* The minus sign; could be any character or icon */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: #d63b3b;
+    /* Same red color to blend with the fold */
+    color: #fff;
+    /* White minus sign */
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+
+    /* Rotate and move it so it looks “printed” on the folded corner */
+    transform: translate(-5px, 5px) rotate(45deg);
+    transform-origin: center;
+    z-index: 3;
+    /* Above the fold triangle */
 }
 
 .card-title {
@@ -68,16 +112,27 @@
 
 .remove-button {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        top: 16px;
+        right: 16px;
+        background: #333;
+        color: #bb0000;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    
+        /* Initially hidden: folded inwards */
+        opacity: 0;
+        transform: perspective(600px) rotateX(90deg);
+        transform-origin: top right;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.task-card:hover .remove-button {
+    opacity: 1;
+    transform: perspective(600px) rotateX(0deg);
 }
 
 .add-check-box-button {
@@ -124,7 +179,7 @@
 
 .task-card.selected {
     /* Style for a selected task card */
-    border-color: red;
+    border-color: #7ed67e;
     color: #d63b3b;
 }
 

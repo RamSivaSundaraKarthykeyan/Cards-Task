@@ -21,8 +21,9 @@
 
 .task-card:hover {
     overflow-y: auto;
+    /* Shows the scrollbar on hover */
+    transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transform: perspective(600px) rotateX(2deg);
 }
 
 .card-title {

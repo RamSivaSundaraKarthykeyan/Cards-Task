@@ -20,9 +20,9 @@
 }
 
 .task-card:hover {
-    overflow-y: auto;
+    opacity: 1;
+        transform: perspective(600px) rotateX(0deg);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transform: perspective(600px) rotateX(2deg);
 }
 
 .card-title {
@@ -68,16 +68,22 @@
 
 .remove-button {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        top: 16px;
+        right: 16px;
+        background: #333;
+        color: #bb0000;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    
+        /* Initially hidden: folded inwards */
+        opacity: 0;
+        transform: perspective(600px) rotateX(90deg);
+        transform-origin: top right;
+        transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .add-check-box-button {
@@ -124,7 +130,7 @@
 
 .task-card.selected {
     /* Style for a selected task card */
-    border-color: red;
+    border-color: #7ed67e;
     color: #d63b3b;
 }
 
