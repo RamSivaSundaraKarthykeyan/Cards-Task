@@ -32,7 +32,7 @@ function StickyNotes() {
   };
 
   const removeSN = (id) => {
-    setNotes((prev) => prev.filter((sn) => sn.id !== id));
+    setNotes((prev) => prev.filter((sn) => sn.id === id));
   };
 
   useEffect(() => {

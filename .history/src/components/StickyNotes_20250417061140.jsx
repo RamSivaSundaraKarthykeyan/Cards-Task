@@ -32,7 +32,7 @@ function StickyNotes() {
   };
 
   const removeSN = (id) => {
-    setNotes((prev) => prev.filter((sn) => sn.id !== id));
+    setNotes((prev) => prev.filter((sn) => sn.id === id));
   };
 
   useEffect(() => {
@@ -116,7 +116,7 @@ function StickyNotes() {
                 color: "black",
               }}
             />
-            <button onClick={() => removeSN(note.id)}>-</button>
+            <button onClick={removeSN}>-</button>
           </div>
         ))}
       </div>
