@@ -3,7 +3,10 @@ import React, { createContext, useEffect, useContext, useState } from "react";
 const TaskCardContext = createContext();
 
 export function TaskCardProvider({ children }) {
-  const [taskCards, setTaskCards] = useState([]);
+  const [taskCards, setTaskCards] = useState(() => {
+    const stored = localStorage.getItem("taskCards");
+    return stored ? JSON.parse(stored) : [];
+  });
   const [selectedTaskId, setSelectedTaskId] = useState(null);
 
   const addTaskCard = (taskCard) => setTaskCards((prev) => [...prev, taskCard]);

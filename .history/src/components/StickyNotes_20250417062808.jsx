@@ -112,21 +112,12 @@ function StickyNotes() {
                 height: "100%",
                 background: "transparent",
                 border: "none",
-                resize: "none", // Disable resizing
+                resize: "none",
                 outline: "none",
                 color: "black",
-                overflow: "hidden", // Prevent scrollbars
-                display: "block",
-                whiteSpace: "normal", // Allow text to wrap within the box
-                wordWrap: "break-word", // Break long words to fit the width
-                textAlign: "left", // Align text to the left
-                lineHeight: "1.5", // Adjust for better spacing
-              }}
-              onInput={(e) => {
-                const textarea = e.target;
-                if (textarea.scrollHeight > textarea.offsetHeight) {
-                  textarea.value = textarea.value.slice(0, -1);
-                }
+                overflow: "hidden" /* Prevents scrollbars */,
+                whiteSpace: "pre-wrap" /* Preserves line breaks */,
+                wordWrap: "break-word" /* Breaks long words to fit the width */,
               }}
             />
             <button className="remove-button" onClick={() => removeSN(note.id)}>

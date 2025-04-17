@@ -1,0 +1,22 @@
+.remove-button{
+    position: absolute;
+    top: 5px;
+    right:5px;
+    background-color: transparent;
+    border: none;
+    color: red;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sticky-note {
+    position: relative;
+    /* Makes the remove button position relative to the note */
+    width: 200px;
+    min-height: 150px;
+    background: yellow;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    user-select: none;
+}

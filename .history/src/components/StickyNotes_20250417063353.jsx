@@ -122,12 +122,6 @@ function StickyNotes() {
                 textAlign: "left", // Align text to the left
                 lineHeight: "1.5", // Adjust for better spacing
               }}
-              onInput={(e) => {
-                const textarea = e.target;
-                if (textarea.scrollHeight > textarea.offsetHeight) {
-                  textarea.value = textarea.value.slice(0, -1);
-                }
-              }}
             />
             <button className="remove-button" onClick={() => removeSN(note.id)}>
               x

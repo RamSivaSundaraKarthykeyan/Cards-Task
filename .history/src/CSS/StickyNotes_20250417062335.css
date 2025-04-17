@@ -1,0 +1,9 @@
+.remove-button{
+    position: absolute;
+    top: 5px;
+    right:5px;
+    background-color: transparent;
+    border: none;
+    color: red;
+    box-shadow: none;
+}

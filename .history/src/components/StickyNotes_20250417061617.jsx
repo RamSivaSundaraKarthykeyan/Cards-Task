@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../CSS/StickyNotes.css";
 
 function StickyNotes() {
   const [notes, setNotes] = useState([]);
@@ -112,25 +111,13 @@ function StickyNotes() {
                 height: "100%",
                 background: "transparent",
                 border: "none",
-                resize: "none", // Disable resizing
+                resize: "none",
                 outline: "none",
                 color: "black",
-                overflow: "hidden", // Prevent scrollbars
-                display: "block",
-                whiteSpace: "normal", // Allow text to wrap within the box
-                wordWrap: "break-word", // Break long words to fit the width
-                textAlign: "left", // Align text to the left
-                lineHeight: "1.5", // Adjust for better spacing
-              }}
-              onInput={(e) => {
-                const textarea = e.target;
-                if (textarea.scrollHeight > textarea.offsetHeight) {
-                  textarea.value = textarea.value.slice(0, -1);
-                }
               }}
             />
-            <button className="remove-button" onClick={() => removeSN(note.id)}>
-              x
+            <button className="remove-buton" onClick={() => removeSN(note.id)}>
+              -
             </button>
           </div>
         ))}
