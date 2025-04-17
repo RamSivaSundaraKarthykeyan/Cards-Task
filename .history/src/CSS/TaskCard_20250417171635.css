@@ -22,7 +22,7 @@
 .task-card:hover {
     overflow-y: auto;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transform: perspective(600px) rotateX(5deg);
+    transform: perspective(600px) rotateY(5deg);
 }
 
 .card-title {

@@ -14,7 +14,7 @@
 }
 
 .task-card-add-button:hover {
-    transform: perspective(600px) rotateX(5deg);
+    transform: perspective(600px) rotateX(20deg);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
